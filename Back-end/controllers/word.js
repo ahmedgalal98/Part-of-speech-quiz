@@ -1,16 +1,19 @@
 // @desc    get random words from json file
 // @route   GET /word
 // @access  Public
-const data = require('../data/data');
+const data = require("../data/data");
 
+// generate type list from word list based on type
 const genrateTypeList = (type, wordList) => {
   return wordList.filter((el) => el.pos === type);
 };
 
+// generate random number
 const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
+// generate array of numbers from min to max
 const createArrayOfNumbers = (start, end) => {
   let array = [];
   for (let i = start; i <= end; i++) {
@@ -19,6 +22,7 @@ const createArrayOfNumbers = (start, end) => {
   return array;
 };
 
+// Create a new word list without repetitions, but every word of the same type comes in a sequence, so you need  shuffle
 const creatNewWordList = (typeList, numberOfWords) => {
   let tmp = [];
   let indexArray = createArrayOfNumbers(0, typeList.length - 1);
@@ -31,6 +35,7 @@ const creatNewWordList = (typeList, numberOfWords) => {
   return tmp;
 };
 
+// shuffle array
 const shuffleArray = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -49,10 +54,10 @@ exports.getRandomWords = async (req, res, next) => {
   let adjectiveList = [];
   let adverbList = [];
 
-  verbList = genrateTypeList('verb', wordList);
-  nounList = genrateTypeList('noun', wordList);
-  adjectiveList = genrateTypeList('adjective', wordList);
-  adverbList = genrateTypeList('adverb', wordList);
+  verbList = genrateTypeList("verb", wordList);
+  nounList = genrateTypeList("noun", wordList);
+  adjectiveList = genrateTypeList("adjective", wordList);
+  adverbList = genrateTypeList("adverb", wordList);
 
   neWordList = [
     ...neWordList,
@@ -69,8 +74,9 @@ exports.getRandomWords = async (req, res, next) => {
     .json({ randomList: randomWordlist, count: randomWordlist.length });
   next();
 };
+
+// calculate the rank of the user
 exports.getRank = async (req, res, next) => {
-  
   let score = req.body.score;
   let scoresList = data.scoresList;
   let rank = 0;

@@ -16,6 +16,7 @@ import axios from 'axios';
 const END_POINT = 'http://localhost:5000/word';
 
 function Quiz() {
+  
   const [hardMode, setHardMode] = useState(false);
   const [clicked, setClicked] = useState(null);
   const [showRank, setShowRank] = useState(false);
