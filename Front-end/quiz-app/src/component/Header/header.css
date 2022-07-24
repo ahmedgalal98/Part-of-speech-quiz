@@ -1,0 +1,21 @@
+.header{
+
+    background-color: #ffffff;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    height: 80px;
+    height: 140px;
+    display: flex;
+    
+    
+}
+.logo{
+
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.title{
+
+    margin-left: 20px;
+    margin-top: 50px;
+}
