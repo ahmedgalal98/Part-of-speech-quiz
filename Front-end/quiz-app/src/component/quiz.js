@@ -16,7 +16,7 @@ import axios from 'axios';
 const END_POINT = 'http://localhost:5000/word';
 
 function Quiz() {
-  
+
   const [hardMode, setHardMode] = useState(false);
   const [clicked, setClicked] = useState(null);
   const [showRank, setShowRank] = useState(false);
@@ -24,7 +24,6 @@ function Quiz() {
   const [correctfeedback, setCorrectfeedback] = useState(null);
   const [wrongfeedback, setWrongfeedback] = useState(null);
   const [wordList, setWordList] = useState([]);
-  // const [feedback, setFeedback] = useState(null);
   const answers = ['noun', 'verb', 'adjective', 'adverb'];
   const [currentQuestion, setcurrentQuestion] = useState({});
   const [questionNumber, setQuestionNumber] = useState(0);
@@ -68,7 +67,6 @@ function Quiz() {
       setcurrentQuestion(wordList[questionNumber + 1]);
       setCorrectfeedback(null);
       setWrongfeedback(null);
-      // setFeedback(null);
       setClicked(false);
       setTime(10);
     } else {
@@ -86,15 +84,12 @@ function Quiz() {
       setClicked(true);
       setCorrectfeedback(true);
       setScore(score + 1);
-      // setFeedback(true);
     } else if (answer !== currentQuestion.pos && !clicked) {
-      // setFeedback(false);
       setClicked(true);
       setWrongfeedback(true);
     }
     if (answer !== currentQuestion.pos && !clicked && hardMode) {
       setWrongfeedback(true);
-      // setFeedback(null);
       setClicked(true);
       if (score > 0) {
         setScore(score - 1);
