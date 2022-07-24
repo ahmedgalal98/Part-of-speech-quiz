@@ -114,7 +114,7 @@ function Quiz() {
   useEffect(() => {
     setcurrentQuestion(wordList[0]);
   }, [wordList]);
-
+ // useeffect to set time
   useEffect(() => {
     const timeOut = setTimeout(() => {
       if (time > 0) {
