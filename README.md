@@ -22,7 +22,7 @@ The user has only 10 seconds to answer the question or the application skip this
     ```sh
      nodemon server.js
      ```
-- run clint side 
+- run client side 
     ```sh
      npm start
      ```
